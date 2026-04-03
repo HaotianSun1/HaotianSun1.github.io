@@ -1,11 +1,48 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout title="Haotian Sun">
+  <h1>Haotian Sun</h1>
+  <div class="subtitle">Master student in astronomy</div>
+
+  <p>
+    Welcome to my personal website. This site presents my academic background,
+    research interests, projects, and notes.
+  </p>
+
+  <h2>About</h2>
+  <p>
+    I am currently a master's student in Astronomy at the University of Amsterdam.
+    My current work   focuses on the characterization of the
+    selection function of the CHIME/Slow search for long-duration radio transients.
+  </p>
+
+  <h2>Research Interests</h2>
+  <ul>
+    <li>Time-domain astrophysics</li>
+    <li>Radio transients</li>
+    <li>Survey selection effects</li>
+    <li>Detection completeness in transient searches</li>
+  </ul>
+
+  <h2>Selected Projects</h2>
+  <ul>
+    <li>Characterizing the selection function of CHIME/Slow for long-duration radio transients</li>
+    <li>Placeholder project</li>
+    <li>Placeholder project</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Email: haotian.sun@student.uva.nl</p>
+  <p>
+    GitHub:
+    <a href="https://github.com/HaotianSun1" target="_blank">HaotianSun1</a>
+  </p>
+
+  <div class="links">
+    <a class="button primary" href="/projects">View Projects</a>
+    <a class="button" href="/about">About Me</a>
+    <a class="button" href="/interests">Interests</a>
+  </div>
+</MainLayout>
