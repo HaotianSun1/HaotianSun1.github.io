@@ -1,0 +1,41 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+const notes = (await getCollection("notes")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<MainLayout title="Notes | Haotian Sun">
+  <h1>Notes</h1>
+  <div class="subtitle">Reading notes, technical notes, and small write-ups</div>
+
+  {
+    notes.map((note) => (
+      <article class="note-card">
+        <h2>
+          <a href={`/notes/${note.id}`}>{note.data.title}</a>
+        </h2>
+        <p><strong>Date:</strong> {note.data.date.toISOString().slice(0, 10)}</p>
+        <p><strong>Tags:</strong> {note.data.tags.join(", ")}</p>
+        <p>{note.data.summary}</p>
+        <p><a href={`/notes/${note.id}`}>Read more</a></p>
+      </article>
+    ))
+  }
+</MainLayout>
+
+<style is:global>
+  .note-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 20px;
+    background: #fff;
+  }
+
+  .note-card h2 {
+    margin-top: 0;
+  }
+</style>

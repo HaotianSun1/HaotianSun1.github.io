@@ -1,0 +1,25 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+  return notes.map((note) => ({
+    params: { slug: note.id },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+
+<MainLayout title={`${note.data.title} | Haotian Sun`}>
+  <h1>{note.data.title}</h1>
+  <p><strong>Date:</strong> {note.data.date.toISOString().slice(0, 10)}</p>
+  <p><strong>Tags:</strong> {note.data.tags.join(", ")}</p>
+
+  <hr />
+
+  <Content />
+</MainLayout>
