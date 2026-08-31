@@ -2,47 +2,129 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Haotian Sun">
-  <h1>Haotian Sun</h1>
-  <div class="subtitle">Master student in astronomy</div>
+<MainLayout title="Haotian Sun | Radio astronomy & transients">
+  <header class="hero">
+    <p class="eyebrow">Radio astronomy · Time-domain astrophysics</p>
+    <h1>Looking for the<br />Universe in motion.</h1>
+    <p class="lead">I study the brief and unexpected signals that reveal a changing radio sky.</p>
+  </header>
 
-  <p>
-    Welcome to my personal website. This site presents my academic background,
-    research interests, projects, and notes.
-  </p>
+  <section class="intro" aria-label="Introduction">
+    <p>
+      I am a master's student in <strong>Astronomy at the University of Amsterdam</strong>.
+      My current work focuses on characterizing the selection function of the
+      CHIME/Slow search for long-duration radio transients.
+    </p>
+    <p>
+      I am interested in how observing systems shape what we discover—and in building
+      careful, transparent methods for separating astrophysical populations from survey effects.
+    </p>
+  </section>
 
-  <h2>About</h2>
-  <p>
-    I am currently a master's student in Astronomy at the University of Amsterdam.
-    My current work   focuses on the characterization of the
-    selection function of the CHIME/Slow search for long-duration radio transients.
-  </p>
+  <section class="contact-strip" aria-label="Contact details">
+    <a href="mailto:haotian.sun@student.uva.nl" class="contact-item">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 5h18v14H3V5Zm1.7 1.5L12 12l7.3-5.5H4.7ZM19.5 17V8.5L12 14 4.5 8.5V17h15Z"></path></svg>
+      <span><small>Email</small>haotian.sun@student.uva.nl</span>
+    </a>
+    <a href="https://github.com/HaotianSun1" target="_blank" rel="noreferrer" class="contact-item">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.66-.22.66-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.17-1.11-1.48-1.11-1.48-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.56 4.93.36.31.68.92.68 1.85v2.77c0 .27.17.58.67.48A10 10 0 0 0 12 2Z"></path></svg>
+      <span><small>GitHub</small>HaotianSun1</span>
+    </a>
+  </section>
 
-  <h2>Research Interests</h2>
-  <ul>
-    <li>Time-domain astrophysics</li>
-    <li>Radio transients</li>
-    <li>Survey selection effects</li>
-    <li>Detection completeness in transient searches</li>
-  </ul>
+  <section id="research">
+    <h2>Research focus</h2>
+    <div class="research-grid">
+      <article>
+        <span class="index">01</span>
+        <h3>Radio transients</h3>
+        <p>Searching for signals that evolve on human timescales, from milliseconds to minutes.</p>
+      </article>
+      <article>
+        <span class="index">02</span>
+        <h3>Selection effects</h3>
+        <p>Understanding which sources a survey can find—and which ones it may quietly miss.</p>
+      </article>
+      <article>
+        <span class="index">03</span>
+        <h3>Detection completeness</h3>
+        <p>Connecting instrumental sensitivity and search pipelines to reliable population studies.</p>
+      </article>
+    </div>
+  </section>
 
-  <h2>Selected Projects</h2>
-  <ul>
-    <li>Characterizing the selection function of CHIME/Slow for long-duration radio transients</li>
-    <li>Placeholder project</li>
-    <li>Placeholder project</li>
-  </ul>
+  <section id="current-work">
+    <h2>Current work</h2>
+    <div class="project-feature">
+      <div>
+        <p class="project-kicker">Master's research · CHIME/Slow</p>
+        <h3>Characterizing the long-duration transient search</h3>
+      </div>
+      <p>
+        I am examining the selection function of CHIME/Slow to understand how the search
+        responds to long-duration radio transients across signal strength, timescale, and observing conditions.
+      </p>
+      <a href="/projects" class="text-link">Explore the project <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 
-  <h2>Contact</h2>
-  <p>Email: haotian.sun@student.uva.nl</p>
-  <p>
-    GitHub:
-    <a href="https://github.com/HaotianSun1" target="_blank">HaotianSun1</a>
-  </p>
-
-  <div class="links">
-    <a class="button primary" href="/projects">View Projects</a>
-    <a class="button" href="/about">About Me</a>
-    <a class="button" href="/interests">Interests</a>
-  </div>
+  <section class="closing">
+    <p>For research conversations, collaborations, or simply to say hello:</p>
+    <a href="mailto:haotian.sun@student.uva.nl">haotian.sun@student.uva.nl</a>
+  </section>
 </MainLayout>
+
+<style>
+  .hero { padding-bottom: 58px; border-bottom: 1px solid var(--border); }
+  .hero h1 { max-width: 780px; }
+  .intro { max-width: 780px; padding: 52px 0 20px; font-size: 1.08rem; }
+
+  .contact-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 20px 0 6px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 18px;
+    border: 1px solid var(--border);
+    background: var(--soft);
+    color: var(--text);
+    font-size: 0.92rem;
+    line-height: 1.35;
+    text-decoration: none;
+  }
+
+  .contact-item:hover { border-color: rgba(70, 170, 139, 0.6); background: #fff; }
+  .contact-item svg { width: 22px; height: 22px; flex: 0 0 auto; fill: var(--accent-dark); }
+  .contact-item small { display: block; margin-bottom: 2px; color: var(--text-soft); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .research-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px; }
+  .research-grid article { position: relative; padding-top: 18px; border-top: 2px solid var(--accent); }
+  .research-grid h3 { margin: 20px 0 10px; }
+  .research-grid p { margin: 0; font-size: 0.93rem; line-height: 1.65; }
+  .index { color: var(--text-soft); font-family: "Space Grotesk", sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; }
+
+  .project-feature { padding: clamp(28px, 5vw, 48px); border-left: 3px solid var(--accent); background: var(--soft); }
+  .project-feature h3 { max-width: 580px; margin: 5px 0 24px; font-size: clamp(1.38rem, 2.5vw, 1.9rem); }
+  .project-feature p { max-width: 700px; }
+  .project-kicker { margin: 0; color: var(--accent-dark); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .text-link { display: inline-flex; gap: 9px; align-items: center; font-weight: 600; text-decoration: none; }
+  .text-link span { transition: transform 180ms ease; }
+  .text-link:hover span { transform: translateX(4px); }
+
+  .closing { margin-top: 76px; padding-top: 30px; border-top: 1px solid var(--border); }
+  .closing p { margin-bottom: 4px; color: var(--text-soft); font-size: 0.92rem; }
+  .closing a { font-size: 1.08rem; }
+
+  @media (max-width: 1100px) { .research-grid { grid-template-columns: 1fr; gap: 24px; } }
+  @media (max-width: 620px) {
+    .hero { padding-bottom: 42px; }
+    .intro { padding-top: 40px; }
+    .contact-strip { grid-template-columns: 1fr; }
+  }
+</style>

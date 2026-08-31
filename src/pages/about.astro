@@ -2,29 +2,49 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="About | Haotian Sun">
-  <h1>About Me</h1>
-  <div class="subtitle">Academic background and current interests</div>
+<MainLayout title="About | Haotian Sun" description="About Haotian Sun, an astronomy master's student at the University of Amsterdam.">
+  <header class="page-header">
+    <p class="eyebrow">About</p>
+    <h1>Curious about signals—and the systems that find them.</h1>
+    <p class="lead">I am an astronomy master's student working at the intersection of radio transients, survey design, and statistical interpretation.</p>
+  </header>
 
-  <p>
-    This page introduces my academic background, current interests, and ongoing work.
-  </p>
+  <section>
+    <h2>Background</h2>
+    <p>
+      I study Astronomy at the <strong>University of Amsterdam</strong>, where my current research concerns the
+      CHIME/Slow search for long-duration radio transients. The project asks a deceptively simple question:
+      what kinds of signals can the search reliably detect?
+    </p>
+    <p>
+      Answering it means connecting astrophysical source properties to telescope sensitivity, observing
+      conditions, and the choices made inside a search pipeline.
+    </p>
+  </section>
 
-  <h2>Background</h2>
-  <p>
-    Placeholder text. This section can later include education, training, and general
-    academic background.
-  </p>
+  <section>
+    <h2>How I think about research</h2>
+    <div class="principles">
+      <article><span>01</span><h3>Start with the instrument</h3><p>Every catalogue reflects both the sky and the system used to observe it.</p></article>
+      <article><span>02</span><h3>Make assumptions visible</h3><p>Clear models and reproducible reasoning are essential for interpreting a survey.</p></article>
+      <article><span>03</span><h3>Follow the odd signals</h3><p>Transient astronomy is exciting because the unusual often carries the most information.</p></article>
+    </div>
+  </section>
 
-  <h2>Current Interests</h2>
-  <p>
-    Placeholder text. This section can later describe research interests, technical
-    directions, or broader intellectual concerns.
-  </p>
-
-  <h2>Ongoing Work</h2>
-  <p>
-    Placeholder text. This section can later include current projects, study plans,
-    or areas of active development.
-  </p>
+  <section class="elsewhere">
+    <h2>Elsewhere</h2>
+    <p>Code and small projects live on <a href="https://github.com/HaotianSun1" target="_blank" rel="noreferrer">GitHub</a>. Research notes and derivations are collected in <a href="/notes">Notes</a>.</p>
+  </section>
 </MainLayout>
+
+<style>
+  .page-header { padding-bottom: 52px; border-bottom: 1px solid var(--border); }
+  .page-header h1 { max-width: 780px; }
+  section > p { max-width: 760px; }
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .principles article { padding-top: 16px; border-top: 2px solid var(--accent); }
+  .principles span { color: var(--text-soft); font: 500 0.76rem "Space Grotesk", sans-serif; letter-spacing: .12em; }
+  .principles h3 { margin: 16px 0 8px; }
+  .principles p { font-size: .94rem; line-height: 1.65; }
+  @media (max-width: 1100px) { .principles { grid-template-columns: 1fr; } }
+</style>

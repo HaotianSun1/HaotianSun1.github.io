@@ -2,40 +2,40 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 
-const notes = (await getCollection("notes")).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
+const notes = (await getCollection("notes")).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<MainLayout title="Notes | Haotian Sun">
-  <h1>Notes</h1>
-  <div class="subtitle">Reading notes, technical notes, and small write-ups</div>
+<MainLayout title="Notes | Haotian Sun" description="Technical notes, derivations, and reading notes by Haotian Sun.">
+  <header class="page-header">
+    <p class="eyebrow">Notes</p>
+    <h1>Working things out</h1>
+    <p class="lead">Derivations, reading notes, and small technical write-ups from work in progress.</p>
+  </header>
 
-  {
-    notes.map((note) => (
-      <article class="note-card">
-        <h2>
-          <a href={`/notes/${note.id}`}>{note.data.title}</a>
-        </h2>
-        <p><strong>Date:</strong> {note.data.date.toISOString().slice(0, 10)}</p>
-        <p><strong>Tags:</strong> {note.data.tags.join(", ")}</p>
-        <p>{note.data.summary}</p>
-        <p><a href={`/notes/${note.id}`}>Read more</a></p>
+  <section class="notes-list" aria-label="Published notes">
+    {notes.map((note, index) => (
+      <article class="note-entry">
+        <div class="note-index">{String(index + 1).padStart(2, "0")}</div>
+        <div>
+          <div class="note-meta"><time datetime={note.data.date.toISOString()}>{note.data.date.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}</time><span>·</span><span>{note.data.tags.slice(0, 3).join(" / ")}</span></div>
+          <h2><a href={`/notes/${note.id}`}>{note.data.title}</a></h2>
+          <p>{note.data.summary}</p>
+          <a class="read-link" href={`/notes/${note.id}`}>Read note <span aria-hidden="true">→</span></a>
+        </div>
       </article>
-    ))
-  }
+    ))}
+  </section>
 </MainLayout>
 
-<style is:global>
-  .note-card {
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px;
-    margin-top: 20px;
-    background: #fff;
-  }
-
-  .note-card h2 {
-    margin-top: 0;
-  }
+<style>
+  .page-header { padding-bottom: 52px; border-bottom: 1px solid var(--border); }
+  .notes-list { margin-top: 34px; }
+  .note-entry { display: grid; grid-template-columns: 58px 1fr; gap: 24px; padding: 34px 0 38px; border-bottom: 1px solid var(--border); }
+  .note-index { padding-top: 3px; color: var(--accent-dark); font: 500 .78rem "Space Grotesk", sans-serif; letter-spacing: .12em; }
+  .note-meta { display: flex; flex-wrap: wrap; gap: 9px; color: var(--text-soft); font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; }
+  .note-entry h2 { margin: 8px 0 12px; padding: 0; border: 0; font-size: clamp(1.35rem, 2.8vw, 1.85rem); }
+  .note-entry h2 a { color: var(--text-strong); text-decoration: none; }
+  .note-entry h2 a:hover { color: var(--accent-dark); }
+  .note-entry p { max-width: 680px; margin-bottom: 14px; font-size: .96rem; }
+  .read-link { display: inline-flex; gap: 8px; font-size: .86rem; font-weight: 600; text-decoration: none; }
 </style>

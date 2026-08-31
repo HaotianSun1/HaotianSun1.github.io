@@ -2,40 +2,28 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Interests | Haotian Sun">
-  <h1>Interests</h1>
-  <div class="subtitle">Beyond academic work</div>
+<MainLayout title="Interests | Haotian Sun" description="Ideas and interests beyond Haotian Sun's academic work.">
+  <header class="page-header">
+    <p class="eyebrow">Interests</p>
+    <h1>Beyond the research desk</h1>
+    <p class="lead">A small, evolving space for things worth returning to outside formal academic work.</p>
+  </header>
 
-  <p>
-    This page is reserved for personal interests, everyday reflections, and topics
-    outside formal academic work.
-  </p>
-
-  <h2>Reading</h2>
-  <p>
-    Placeholder text. This section can later include books, essays, authors, or
-    reading notes.
-  </p>
-
-  <h2>Film and Television</h2>
-  <p>
-    Placeholder text. This section can later include films, television series, or
-    personal comments on them.
-  </p>
-
-  <h2>Daily Life</h2>
-  <p>
-    Placeholder text. This section can later include observations, routines, food,
-    travel, or fragments of ordinary life.
-  </p>
-
-  <h2>Other Interests</h2>
-  <p>
-    Placeholder text. This section can later be expanded into any topics you would
-    like to keep on the site.
-  </p>
-
-  <div class="links">
-    <a class="button" href="/">Back to Home</a>
+  <div class="interest-list">
+    <section><span class="number">01</span><div><h2>Reading</h2><p>Books, essays, and ideas that sharpen curiosity or offer a different way to see a familiar problem.</p></div></section>
+    <section><span class="number">02</span><div><h2>Film & television</h2><p>Stories, images, and memorable scenes—collected here as this part of the site grows.</p></div></section>
+    <section><span class="number">03</span><div><h2>Daily observations</h2><p>Travel, food, routines, and the occasional detail from ordinary life that deserves to be kept.</p></div></section>
   </div>
+
+  <p class="quiet-note">This page is intentionally unfinished: a place to collect interests gradually rather than fill it with placeholders.</p>
 </MainLayout>
+
+<style>
+  .page-header { padding-bottom: 52px; border-bottom: 1px solid var(--border); }
+  .interest-list { margin-top: 52px; }
+  .interest-list section { display: grid; grid-template-columns: 68px 1fr; gap: 22px; padding: 24px 0 30px; border-bottom: 1px solid var(--border); }
+  .interest-list h2 { margin: 0 0 10px; padding: 0; border: 0; font-size: 1.5rem; }
+  .interest-list p { max-width: 620px; margin: 0; }
+  .number { padding-top: 4px; color: var(--accent-dark); font: 500 .8rem "Space Grotesk", sans-serif; letter-spacing: .12em; }
+  .quiet-note { margin-top: 52px; color: var(--text-soft); font-size: .9rem; font-style: italic; }
+</style>

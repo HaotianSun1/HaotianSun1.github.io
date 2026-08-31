@@ -4,22 +4,38 @@ import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
-  return notes.map((note) => ({
-    params: { slug: note.id },
-    props: { note },
-  }));
+  return notes.map((note) => ({ params: { slug: note.id }, props: { note } }));
 }
 
 const { note } = Astro.props;
 const { Content } = await render(note);
 ---
 
-<MainLayout title={`${note.data.title} | Haotian Sun`}>
-  <h1>{note.data.title}</h1>
-  <p><strong>Date:</strong> {note.data.date.toISOString().slice(0, 10)}</p>
-  <p><strong>Tags:</strong> {note.data.tags.join(", ")}</p>
-
-  <hr />
-
-  <Content />
+<MainLayout title={`${note.data.title} | Haotian Sun`} description={note.data.summary}>
+  <article class="note-page">
+    <header class="note-header">
+      <a class="back-link" href="/notes">← All notes</a>
+      <div class="note-meta"><time datetime={note.data.date.toISOString()}>{note.data.date.toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" })}</time><span>·</span><span>{note.data.tags.join(" / ")}</span></div>
+      <h1>{note.data.title}</h1>
+      <p class="lead">{note.data.summary}</p>
+    </header>
+    <div class="note-body"><Content /></div>
+  </article>
 </MainLayout>
+
+<style is:global>
+  .note-header { padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+  .note-header h1 { max-width: 800px; margin-top: 16px; font-size: clamp(2.25rem, 5vw, 4rem); }
+  .back-link { display: inline-block; margin-bottom: 36px; font-size: .88rem; font-weight: 600; text-decoration: none; }
+  .note-meta { display: flex; flex-wrap: wrap; gap: 9px; color: var(--text-soft); font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; }
+  .note-body { max-width: 760px; padding-top: 28px; }
+  .note-body > h1:first-child { display: none; }
+  .note-body h2 { margin-top: 56px; font-size: 1.65rem; }
+  .note-body h3 { margin-top: 42px; }
+  .note-body hr { margin: 54px 0; border: 0; border-top: 1px solid var(--border); }
+  .note-body pre { overflow-x: auto; padding: 20px; background: #101c2f; color: #e9f1ef; font-size: .86rem; }
+  .note-body code { font-size: .88em; }
+  .note-body :not(pre) > code { padding: .12em .35em; background: var(--soft); color: var(--text-strong); }
+  .note-body blockquote { margin: 32px 0; padding: 4px 0 4px 24px; border-left: 2px solid var(--accent); color: var(--text-soft); }
+  .note-body .katex-display { margin: 2rem 0; overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+</style>

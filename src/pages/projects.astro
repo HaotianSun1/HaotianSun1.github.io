@@ -2,27 +2,51 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Projects | Haotian Sun">
-  <h1>Projects</h1>
-  <div class="subtitle">Selected academic and technical work</div>
+<MainLayout title="Projects | Haotian Sun" description="Research and technical projects by Haotian Sun.">
+  <header class="page-header">
+    <p class="eyebrow">Projects</p>
+    <h1>Selected work</h1>
+    <p class="lead">Current research and technical explorations in radio astronomy.</p>
+  </header>
 
-  <p>
-    This page is reserved for selected projects. Each entry can later be expanded
-    with a short introduction, methods, tools, and outcomes.
-  </p>
+  <section class="project-list">
+    <article class="project">
+      <div class="project-meta">
+        <span>Current</span>
+        <span>Master's research</span>
+      </div>
+      <div class="project-body">
+        <p class="eyebrow">CHIME/Slow</p>
+        <h2>Selection function for long-duration radio transients</h2>
+        <p>
+          Characterizing how the CHIME/Slow search responds to signals across duration, brightness,
+          and observing conditions. The goal is to connect detected events to the underlying source population
+          with a clear account of survey completeness.
+        </p>
+        <ul class="tags" aria-label="Project topics">
+          <li>Radio transients</li><li>Survey completeness</li><li>Selection effects</li><li>CHIME</li>
+        </ul>
+      </div>
+    </article>
+  </section>
 
-  <h2>Project 1</h2>
-  <p>
-    Placeholder text. Add a brief description of the project here.
-  </p>
-
-  <h2>Project 2</h2>
-  <p>
-    Placeholder text. Add a brief description of the project here.
-  </p>
-
-  <h2>Project 3</h2>
-  <p>
-    Placeholder text. Add a brief description of the project here.
-  </p>
+  <aside class="project-note">
+    <p>More projects will be added as they develop. In the meantime, visit <a href="/notes">Notes</a> for technical derivations and shorter pieces.</p>
+  </aside>
 </MainLayout>
+
+<style>
+  .page-header { padding-bottom: 52px; border-bottom: 1px solid var(--border); }
+  .project-list { margin-top: 62px; }
+  .project { display: grid; grid-template-columns: 150px 1fr; gap: clamp(28px, 5vw, 64px); }
+  .project-meta { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; color: var(--text-soft); font-size: .82rem; }
+  .project-meta span:first-child { color: var(--accent-dark); font-weight: 600; }
+  .project-body { padding-left: clamp(24px, 4vw, 42px); border-left: 2px solid var(--accent); }
+  .project-body h2 { margin: 4px 0 22px; padding: 0; border: 0; font-size: clamp(1.65rem, 3.6vw, 2.7rem); }
+  .project-body > p:not(.eyebrow) { max-width: 650px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; list-style: none; }
+  .tags li { margin: 0; padding: 5px 11px; border: 1px solid var(--border); color: var(--text-soft); font-size: .78rem; }
+  .project-note { margin-top: 82px; padding: 24px 28px; background: var(--soft); font-size: .94rem; }
+  .project-note p { margin: 0; }
+  @media (max-width: 650px) { .project { grid-template-columns: 1fr; gap: 20px; } .project-meta { flex-direction: row; gap: 14px; } }
+</style>
