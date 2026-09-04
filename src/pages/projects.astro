@@ -6,25 +6,78 @@ import MainLayout from "../layouts/MainLayout.astro";
   <header class="page-header">
     <p class="eyebrow">Projects</p>
     <h1>Selected work</h1>
-    <p class="lead">Current research and technical explorations in radio astronomy.</p>
+    <p class="lead">Research in radio transients, survey calibration, and selection effects.</p>
   </header>
 
   <section class="project-list">
     <article class="project">
       <div class="project-meta">
-        <span>Current</span>
-        <span>Master's research</span>
+        <span>Completed</span>
+        <span>MSc thesis</span>
       </div>
       <div class="project-body">
         <p class="eyebrow">CHIME/Slow</p>
-        <h2>Selection function for long-duration radio transients</h2>
+        <h2>Characterizing the Selection Function of the Search for Long-Duration Radio Transients with CHIME/Slow</h2>
         <p>
-          Characterizing how the CHIME/Slow search responds to signals across duration, brightness,
-          and observing conditions. The goal is to connect detected events to the underlying source population
-          with a clear account of survey completeness.
+          CHIME/Slow extends CHIME's temporal sensitivity to radio transients with widths from
+          approximately 16 milliseconds to 5 seconds. I measured its end-to-end selection function
+          using synthetic bursts injected into CHIME intensity data and processed through the complete search pipeline.
         </p>
+        <div class="project-facts" aria-label="Thesis overview">
+          <div><strong>279,593</strong><span>injections analysed</span></div>
+          <div><strong>1,442</strong><span>secure recoveries</span></div>
+          <div><strong>16 ms–5 s</strong><span>target width range</span></div>
+        </div>
+
+        <h3>What I found</h3>
+        <ul class="findings">
+          <li><strong>Fluence–width dependence.</strong> Beam-modulated fluence and broadened pulse width organize the dominant recovery structure. The empirical sensitivity boundary is approximately constant below the 16-ms sampling scale and rises with width for broader signals.</li>
+          <li><strong>Bright bandwidth.</strong> At comparable beam-modulated fluence and broadened width, signals that remain bright across a larger fraction of the observing band are recovered more frequently. Bright bandwidth captures this spectral-visibility dependence beyond total fluence alone.</li>
+          <li><strong>Dispersion measure (DM).</strong> A residual dependence on DM remains after approximately accounting for the primary fluence–width sensitivity. The analysis does not establish DM itself as the direct cause of this trend.</li>
+        </ul>
+
+        <div class="methodology">
+          <p class="eyebrow">Methodological contribution</p>
+          <h3>Not all limitations are the same</h3>
+          <p class="method-intro">
+            A central conclusion of the thesis is that three conceptually distinct limitations of
+            injection-derived selection functions are often conflated. Each enters at a different
+            stage of the inference problem and requires a different remedy.
+          </p>
+
+          <div class="limits-grid">
+            <article>
+              <span>01</span>
+              <h4>Population conditioning</h4>
+              <p>
+                A low-dimensional completeness map averages over omitted—but represented—variables
+                according to their distribution in the injected population. More injections reduce
+                statistical noise, but do not remove this dependence. Higher-dimensional modelling or
+                reweighting can help when the relevant variables and sufficient support are available.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h4>Simulator misspecification</h4>
+              <p>
+                Morphology absent from the injected signal family—such as multi-component structure,
+                sub-burst drift, irregular spectral occupancy, or scintillation—cannot be recovered by
+                rebinning, adding more injections from the same simulator, or using a more flexible inference method.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h4>Recovery identity</h4>
+              <p>
+                When injection identity is reconstructed from final candidate parameters, the measured
+                recovery function includes matching and verification as well as the physical pipeline response.
+                Propagating an injection ID from the earliest practical event stage would isolate these effects.
+              </p>
+            </article>
+          </div>
+        </div>
         <ul class="tags" aria-label="Project topics">
-          <li>Radio transients</li><li>Survey completeness</li><li>Selection effects</li><li>CHIME</li>
+          <li>Radio transients</li><li>Injection–recovery</li><li>Selection functions</li><li>Simulator support</li><li>CHIME</li>
         </ul>
       </div>
     </article>
@@ -44,9 +97,24 @@ import MainLayout from "../layouts/MainLayout.astro";
   .project-body { padding-left: clamp(24px, 4vw, 42px); border-left: 2px solid var(--accent); }
   .project-body h2 { margin: 4px 0 22px; padding: 0; border: 0; font-size: clamp(1.65rem, 3.6vw, 2.7rem); }
   .project-body > p:not(.eyebrow) { max-width: 650px; }
+  .project-body h3 { margin-top: 38px; }
+  .project-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 34px 0 10px; background: var(--border); border: 1px solid var(--border); }
+  .project-facts div { padding: 18px; background: var(--soft); }
+  .project-facts strong { display: block; color: var(--text-strong); font-family: "Space Grotesk", sans-serif; font-size: 1.18rem; }
+  .project-facts span { display: block; margin-top: 3px; color: var(--text-soft); font-size: .76rem; }
+  .findings { max-width: 680px; margin: 0; padding-left: 1.1rem; }
+  .findings li { margin: 0 0 12px; padding-left: .35rem; }
+  .methodology { margin-top: 52px; padding-top: 42px; border-top: 1px solid var(--border); }
+  .methodology > h3 { margin: 6px 0 12px; font-size: clamp(1.45rem, 2.7vw, 2rem); }
+  .method-intro { max-width: 680px; }
+  .limits-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 30px; }
+  .limits-grid article { padding: 22px 24px 24px; border: 1px solid var(--border); background: var(--soft); }
+  .limits-grid span { color: var(--accent-dark); font: 500 .72rem "Space Grotesk", sans-serif; letter-spacing: .12em; }
+  .limits-grid h4 { margin: 8px 0 8px; color: var(--text-strong); font: 600 1.08rem "Space Grotesk", sans-serif; }
+  .limits-grid p { margin: 0; font-size: .9rem; line-height: 1.68; }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; list-style: none; }
   .tags li { margin: 0; padding: 5px 11px; border: 1px solid var(--border); color: var(--text-soft); font-size: .78rem; }
   .project-note { margin-top: 82px; padding: 24px 28px; background: var(--soft); font-size: .94rem; }
   .project-note p { margin: 0; }
-  @media (max-width: 650px) { .project { grid-template-columns: 1fr; gap: 20px; } .project-meta { flex-direction: row; gap: 14px; } }
+  @media (max-width: 650px) { .project { grid-template-columns: 1fr; gap: 20px; } .project-meta { flex-direction: row; gap: 14px; } .project-facts { grid-template-columns: 1fr; } }
 </style>

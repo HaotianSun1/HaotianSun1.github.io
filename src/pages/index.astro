@@ -4,20 +4,18 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="Haotian Sun | Radio astronomy & transients">
   <header class="hero">
-    <p class="eyebrow">Radio astronomy · Time-domain astrophysics</p>
-    <h1>Looking for the<br />Universe in motion.</h1>
-    <p class="lead">I study the brief and unexpected signals that reveal a changing radio sky.</p>
+    <h1 class="eyebrow">Radio astronomy · Time-domain astrophysics</h1>
+    <p class="lead">I work on long-duration radio transients and on understanding how survey selection shapes what we detect.</p>
   </header>
 
   <section class="intro" aria-label="Introduction">
     <p>
-      I am a master's student in <strong>Astronomy at the University of Amsterdam</strong>.
-      My current work focuses on characterizing the selection function of the
-      CHIME/Slow search for long-duration radio transients.
+      My MSc thesis at the <strong>University of Amsterdam</strong> characterized the
+      end-to-end selection function of the CHIME/Slow search for long-duration radio transients.
     </p>
     <p>
-      I am interested in how observing systems shape what we discover—and in building
-      careful, transparent methods for separating astrophysical populations from survey effects.
+      I am interested in how telescopes and search pipelines shape what we discover—and in
+      connecting empirical survey calibration to reliable astrophysical population studies.
     </p>
   </section>
 
@@ -37,32 +35,33 @@ import MainLayout from "../layouts/MainLayout.astro";
     <div class="research-grid">
       <article>
         <span class="index">01</span>
-        <h3>Radio transients</h3>
-        <p>Searching for signals that evolve on human timescales, from milliseconds to minutes.</p>
+        <h3>Broad radio transients</h3>
+        <p>Exploring the comparatively underexamined regime between fast bursts and slow variability.</p>
       </article>
       <article>
         <span class="index">02</span>
-        <h3>Selection effects</h3>
-        <p>Understanding which sources a survey can find—and which ones it may quietly miss.</p>
+        <h3>Injection–recovery calibration</h3>
+        <p>Measuring a search pipeline end to end by injecting synthetic signals into real telescope data.</p>
       </article>
       <article>
         <span class="index">03</span>
-        <h3>Detection completeness</h3>
-        <p>Connecting instrumental sensitivity and search pipelines to reliable population studies.</p>
+        <h3>Selection functions</h3>
+        <p>Understanding when a completeness model can—and cannot—be transferred to an astrophysical population.</p>
       </article>
     </div>
   </section>
 
   <section id="current-work">
-    <h2>Current work</h2>
+    <h2>Selected work</h2>
     <div class="project-feature">
       <div>
-        <p class="project-kicker">Master's research · CHIME/Slow</p>
-        <h3>Characterizing the long-duration transient search</h3>
+        <p class="project-kicker">MSc thesis · CHIME/Slow</p>
+        <h3>Characterizing the selection function of CHIME/Slow</h3>
       </div>
       <p>
-        I am examining the selection function of CHIME/Slow to understand how the search
-        responds to long-duration radio transients across signal strength, timescale, and observing conditions.
+        I analysed 279,593 synthetic radio bursts processed through the full search pipeline.
+        The results show that detectability is shaped not only by fluence and duration, but also
+        by telescope response, temporal broadening, spectral visibility, and pipeline processing.
       </p>
       <a href="/projects" class="text-link">Explore the project <span aria-hidden="true">→</span></a>
     </div>
@@ -75,9 +74,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 </MainLayout>
 
 <style>
-  .hero { padding-bottom: 58px; border-bottom: 1px solid var(--border); }
-  .hero h1 { max-width: 780px; }
-  .intro { max-width: 780px; padding: 52px 0 20px; font-size: 1.08rem; }
+  .hero { max-width: 780px; }
+  .hero .eyebrow { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.12em; }
+  .hero .lead { font-size: 1.08rem; line-height: 1.75; }
+  .intro { max-width: 780px; padding: 0 0 20px; font-size: 1.08rem; }
 
   .contact-strip {
     display: grid;
@@ -123,8 +123,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   @media (max-width: 1100px) { .research-grid { grid-template-columns: 1fr; gap: 24px; } }
   @media (max-width: 620px) {
-    .hero { padding-bottom: 42px; }
-    .intro { padding-top: 40px; }
     .contact-strip { grid-template-columns: 1fr; }
   }
 </style>

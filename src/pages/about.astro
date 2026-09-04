@@ -2,49 +2,97 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="About | Haotian Sun" description="About Haotian Sun, an astronomy master's student at the University of Amsterdam.">
+<MainLayout title="About | Haotian Sun" description="Education and research experience of Haotian Sun, from physics at Zhejiang University to astronomy at the University of Amsterdam.">
   <header class="page-header">
-    <p class="eyebrow">About</p>
-    <h1>Curious about signals—and the systems that find them.</h1>
-    <p class="lead">I am an astronomy master's student working at the intersection of radio transients, survey design, and statistical interpretation.</p>
+    <h1>About</h1>
   </header>
 
-  <section>
-    <h2>Background</h2>
-    <p>
-      I study Astronomy at the <strong>University of Amsterdam</strong>, where my current research concerns the
-      CHIME/Slow search for long-duration radio transients. The project asks a deceptively simple question:
-      what kinds of signals can the search reliably detect?
-    </p>
-    <p>
-      Answering it means connecting astrophysical source properties to telescope sensitivity, observing
-      conditions, and the choices made inside a search pipeline.
-    </p>
-  </section>
-
-  <section>
-    <h2>How I think about research</h2>
-    <div class="principles">
-      <article><span>01</span><h3>Start with the instrument</h3><p>Every catalogue reflects both the sky and the system used to observe it.</p></article>
-      <article><span>02</span><h3>Make assumptions visible</h3><p>Clear models and reproducible reasoning are essential for interpreting a survey.</p></article>
-      <article><span>03</span><h3>Follow the odd signals</h3><p>Transient astronomy is exciting because the unusual often carries the most information.</p></article>
+  <section aria-labelledby="education-heading">
+    <h2 id="education-heading">Education</h2>
+    <div class="timeline">
+      <article class="timeline-entry">
+        <p class="dates">2024–2026</p>
+        <div>
+          <h3>University of Amsterdam</h3>
+          <p class="qualification">MSc Physics and Astronomy</p>
+          <p class="detail">Track: Astronomy &amp; Astrophysics</p>
+          <p class="detail">Thesis supervisors: Jason Hessels and Ziggy Pleunis</p>
+        </div>
+      </article>
+      <article class="timeline-entry">
+        <p class="dates">2020–2024</p>
+        <div>
+          <h3>Zhejiang University</h3>
+          <p class="qualification">BSc Physics</p>
+          <p class="detail">Thesis: <em>Topological Structure in Chiral Magnetohydrodynamics</em></p>
+          <p class="detail">Thesis supervisor: Koichi Hattori</p>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section class="elsewhere">
-    <h2>Elsewhere</h2>
-    <p>Code and small projects live on <a href="https://github.com/HaotianSun1" target="_blank" rel="noreferrer">GitHub</a>. Research notes and derivations are collected in <a href="/notes">Notes</a>.</p>
+  <section aria-labelledby="research-heading">
+    <h2 id="research-heading">Research experience</h2>
+    <div class="timeline">
+      <article class="timeline-entry">
+        <p class="dates">2025–2026</p>
+        <div>
+          <h3>CHIME/Slow: long-duration radio transients</h3>
+          <p class="affiliation">MSc thesis · Anton Pannekoek Institute for Astronomy, University of Amsterdam</p>
+          <p>End-to-end injection–recovery analysis of the CHIME/Slow selection function, including signal identification, survey completeness, and the methodological limits of injection-based calibration.</p>
+          <a class="project-link" href="/projects">Thesis methods and findings <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="timeline-entry">
+        <p class="dates">2026</p>
+        <div>
+          <h3>Astrovaria: massive binary evolution</h3>
+          <p class="affiliation">MSc research · University of Amsterdam</p>
+          <p>Population-level analysis of Wolf–Rayet + O-star binaries, comparing component masses, mass ratios, orbital periods, and inclinations with expectations for later stages of massive binary evolution.</p>
+        </div>
+      </article>
+      <article class="timeline-entry">
+        <p class="dates">2023–2024</p>
+        <div>
+          <h3>Topological structure in chiral magnetohydrodynamics</h3>
+          <p class="affiliation">BSc thesis · Zhejiang University</p>
+          <p>Analytical study of chiral magnetohydrodynamic equations and their mathematical connections to non-Hermitian quantum systems, with applications to theoretical plasma modelling.</p>
+        </div>
+      </article>
+      <article class="timeline-entry">
+        <p class="dates">2022</p>
+        <div>
+          <h3>Nonlinear dynamics and chaotic neural networks</h3>
+          <p class="affiliation">Undergraduate research · Zhejiang University</p>
+          <p>Combined a chaotic neural network model with empirical brain-connectivity data to investigate complex dynamical behaviour.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="cv-heading">
+    <h2 id="cv-heading">Curriculum vitae</h2>
+    <p>For a copy of my CV, please <a href="mailto:haotian.sun@student.uva.nl?subject=CV%20request">get in touch</a>.</p>
   </section>
 </MainLayout>
 
 <style>
-  .page-header { padding-bottom: 52px; border-bottom: 1px solid var(--border); }
-  .page-header h1 { max-width: 780px; }
-  section > p { max-width: 760px; }
-  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .principles article { padding-top: 16px; border-top: 2px solid var(--accent); }
-  .principles span { color: var(--text-soft); font: 500 0.76rem "Space Grotesk", sans-serif; letter-spacing: .12em; }
-  .principles h3 { margin: 16px 0 8px; }
-  .principles p { font-size: .94rem; line-height: 1.65; }
-  @media (max-width: 1100px) { .principles { grid-template-columns: 1fr; } }
+  .page-header h1 { margin: 0 0 34px; font-size: 1.85rem; letter-spacing: -.02em; }
+  section h2 { margin: 48px 0 24px; font-size: 1.4rem; }
+  section:first-of-type h2 { margin-top: 0; }
+  .timeline-entry { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 26px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+  .timeline-entry:first-child { padding-top: 0; }
+  .timeline-entry:last-child { border-bottom: 0; padding-bottom: 0; }
+  .dates { margin: 2px 0 0; color: var(--accent-dark); font-size: .9rem; font-variant-numeric: tabular-nums; }
+  .timeline-entry h3 { margin: 0 0 8px; font-size: 1.1rem; line-height: 1.4; }
+  .timeline-entry p { margin-bottom: 10px; }
+  .timeline-entry p:last-child { margin-bottom: 0; }
+  .qualification { color: var(--text-strong); }
+  .timeline-entry .detail { margin-bottom: 4px; font-size: .95rem; }
+  .affiliation { font-size: .9rem; line-height: 1.6; }
+  .project-link { display: inline-block; font-size: .9rem; text-decoration: none; }
+  @media (max-width: 650px) {
+    .timeline-entry { grid-template-columns: 1fr; gap: 8px; }
+    .page-header h1 { font-size: 1.65rem; }
+  }
 </style>

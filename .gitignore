@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Local reference documents (not for publication)
+CV_for_Leiden_draft1.pdf
+Haotian_Sun_UvA_MSc_thesis.pdf
